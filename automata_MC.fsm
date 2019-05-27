@@ -79,7 +79,7 @@
     <transition c1x="863.3939228676333" c2y="466.7727698071119" c1y="492.0889569484738" description="" straight="0" type="2" ypos="452.0434404721515" endx="684.7567719431667" xpos="959.7652476222788" endy="600.2341987992777" c2x="774.2596610760135">
       <from>2</from>
       <to>3</to>
-      <inputs default="0" any="0" invert="0">Bus_TRDY &amp;&amp; RE &amp;&amp; LastWord / MC_WE, origen</inputs>
+      <inputs default="0" any="0" invert="0">Bus_TRDY&amp;&amp;RE&amp;&amp;LastWord/MC_WE,origen,Frame</inputs>
       <outputs></outputs>
     </transition>
     <transition c1x="988.5362326080733" c2y="566.0210138206156" c1y="584.4694593753175" description="" straight="0" type="2" ypos="462.7194456589556" endx="967.5642096550325" xpos="985.7106972703239" endy="457.1674510347465" c2x="947.6209185398035">
