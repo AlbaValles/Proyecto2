@@ -67,7 +67,7 @@ component counter_2bits is
 end component;		           
 -------------------------------------------------------------------------------------------------
 -- poner en el siguiente type el nombre de vuestros estados
-type state_type is (Inicio, otros_estados); 
+type state_type is (Inicio, Await,Transfer,LastWord); 
 signal state, next_state : state_type; 
 signal last_word: STD_LOGIC; --se activa cuando se está pidiendo la última palabra de un bloque
 signal count_enable: STD_LOGIC; -- se activa si se ha recibido una palabra de un bloque para que se incremente el contador de palabras
@@ -120,10 +120,75 @@ palabra <= palabra_UC;
         if (state = Inicio and RE= '0' and WE= '0') then -- si no piden nada no hacemos nada
 				next_state <= Inicio;
 				ready <= '1';
-   	-- Poner aquí las condiciones de vuestra máquina de estado
-	--  elsif() then
-   	--  else
-		
+   	-- Poned aquí las condiciones de vuestra máquina de estado
+	-- Hit en lectura
+		elsif(state = Inicio and RE='1' and hit = '1') then			
+				next_state <= Inicio;
+				ready <= '1';
+			-- 	MC_RE ya estará a 1 puesto que RE del MIPS también estará a 1
+	-- Miss en lectura
+		elsif( state = Inicio and RE = '1' and hit = '0') then 		
+				next_state <= Await;
+				MC_send_addr <= '1';
+				block_addr <= '1';
+				Frame <= '1';
+				MC_tags_WE <= '1';
+		elsif( state = Await and RE = '1' and Bus_DevSel = '0' ) then 
+				next_state <= Await;
+				MC_send_addr <= '1';
+				block_addr <= '1';
+				Frame <= '1';
+		elsif( state = Await and RE = '1' and Bus_DevSel = '1' ) then
+				next_state <= Transfer;
+				MC_send_addr <= '1';
+				block_addr <= '1';
+				Frame <= '1';
+		elsif( state = Transfer and RE = '1' and bus_TRDY = '1') then
+				next_state <= Transfer;
+				Frame <= '1';
+				count_enable <= '1';
+				mux_origen <= '1';
+				MC_WE <= '1';
+		elsif( state = Transfer and bus_TRDY = '0') then
+				next_state <= Transfer;
+				Frame <= '1';
+		elsif( state = Transfer and RE = '1' and bus_TRDY = '1' and last_word = '1') then 
+				next_state <= LastWord;
+				MC_WE <= '1';
+				Frame <= '1';
+				mux_origen <= '1'; 
+		elsif( state = LastWord ) then 
+				next_state <= Inicio;
+				Replace_block <= '1';
+				ready <= '1';
+				palabra_UC <= "00";
+	-- Hit en escritura
+		elsif( state = Inicio and WE = '1' and hit = '1') then 
+				next_state <= Await;
+				MC_WE <= '1';
+				MC_send_addr <= '1';
+				Frame <= '1';
+				MC_bus_Rd_Wr <= '1';
+		elsif ( state = Await and Bus_DevSel = '0' and WE = '1') then
+				next_state <= Await;
+				MC_send_addr <= '1';
+				Frame <= '1';
+				MC_bus_Rd_Wr <= '1';		
+		elsif ( state = Await and Bus_DevSel = '1' and WE = '1') then
+				next_state <= Transfer;
+				MC_send_addr <= '1';
+				Frame <= '1';
+				MC_bus_Rd_Wr <= '1';
+		elsif ( state = Transfer and bus_TRDY = '1' and WE = '1') then 
+				next_state <= Inicio;
+				MC_send_data <= '1';
+				ready <= '1';
+	-- Miss en escritura
+		elsif ( state = Inicio and WE = '1' and hit = '0') then 
+				next_state <= Await;
+				MC_send_addr <= '1';
+				Frame <= '1';
+				MC_bus_Rd_Wr <= '1';
 		end if;
    end process;
  
