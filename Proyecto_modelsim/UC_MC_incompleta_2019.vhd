@@ -149,7 +149,7 @@ palabra <= palabra_UC;
 				count_enable <= '1';
 				mux_origen <= '1';
 				MC_WE <= '1';
-		elsif( state = Transfer and bus_TRDY = '0' and RE = '1') then
+		elsif( state = Transfer and bus_TRDY = '0') then
 				next_state <= Transfer;
 				Frame <= '1';
 		elsif( state = Transfer and RE = '1' and bus_TRDY = '1' and last_word = '1') then 
@@ -157,7 +157,7 @@ palabra <= palabra_UC;
 				MC_WE <= '1';
 				Frame <= '1';
 				mux_origen <= '1'; 
-		elsif( state = LastWord ) then 
+		elsif( state = LastWord and RE = '1') then 
 				next_state <= Inicio;
 				Replace_block <= '1';
 				ready <= '1';
@@ -180,12 +180,12 @@ palabra <= palabra_UC;
 				MC_send_addr <= '1';
 				Frame <= '1';
 				MC_bus_Rd_Wr <= '1';
-		elsif( state = Transfer and bus_TRDY = '0' and WE = '1') then
-				next_state <= Transfer;
+		elsif ( state = Transfer and bus_TRDY = '1' and WE = '1') then 
+				next_state <= LastWord;
 				Frame <= '1';
 				MC_bus_Rd_Wr <= '1';
 				MC_send_data <= '1';
-		elsif ( state = Transfer and bus_TRDY = '1' and WE = '1') then 
+		elsif ( state = LastWord and WE = '1' ) then
 				next_state <= Inicio;
 				ready <= '1';
 	-- Miss en escritura
