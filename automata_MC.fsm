@@ -58,40 +58,46 @@
       <inputs default="0" any="0" invert="0">Bus_DevSel=0&amp;&amp;RE/MC_send_addr,block_addr,Bus_Frame</inputs>
       <outputs></outputs>
     </transition>
-    <transition c1x="903.0701238766983" c2y="245.262549806734" c1y="260.2160193882991" description="" straight="0" type="2" ypos="273.3147524759035" endx="1033.664091682598" xpos="730.6050020155969" endy="386.9274995273011" c2x="935.0004596729079">
+    <transition c1x="903.0701238766983" c2y="223.098449557511" c1y="260.2160193882991" description="" straight="0" type="2" ypos="273.3147524759035" endx="1000.104463009115" xpos="730.6050020155969" endy="363.835899750777" c2x="900.1049226820234">
       <from>1</from>
       <to>2</to>
       <inputs default="0" any="0" invert="0">Bus_DevSel=1&amp;&amp;RE/MC_send_addr,block_addr,Bus_Frame</inputs>
       <outputs></outputs>
     </transition>
-    <transition c1x="718.4767401866526" c2y="483.3359787430495" c1y="463.2315583328866" description="" straight="0" type="2" ypos="382.1089224034048" endx="272.8876876657512" xpos="951.684083058879" endy="409.7683991532123" c2x="557.1342139262018">
-      <from>2</from>
-      <to>0</to>
-      <inputs default="0" any="0" invert="0">Bus_TRDY &amp;&amp; WE / MC_send_data, ready</inputs>
-      <outputs></outputs>
-    </transition>
-    <transition c1x="880.3675942689963" c2y="397.2723389095138" c1y="481.2777986516915" description="" straight="0" type="2" ypos="436.5294117647059" endx="942.8216741842393" xpos="946.8823529411764" endy="410.5504648249417" c2x="823.4346913111103">
+    <transition c1x="834.5504233943309" c2y="353.0442585034778" c1y="444.1289170982892" description="" straight="0" type="2" ypos="404.7800506347322" endx="946.5356098840927" xpos="941.6803038083929" endy="390.1325993689619" c2x="832.2489416452072">
       <from>2</from>
       <to>2</to>
       <inputs default="0" any="0" invert="0">Bus_TRDY=0 / Bus_Frame</inputs>
       <outputs></outputs>
     </transition>
-    <transition c1x="863.3939228676333" c2y="466.7727698071119" c1y="492.0889569484738" description="" straight="0" type="2" ypos="452.0434404721515" endx="684.7567719431667" xpos="959.7652476222788" endy="600.2341987992777" c2x="774.2596610760135">
-      <from>2</from>
-      <to>3</to>
-      <inputs default="0" any="0" invert="0">Bus_TRDY&amp;&amp;RE&amp;&amp;LastWord/MC_WE,origen,Frame</inputs>
-      <outputs></outputs>
-    </transition>
-    <transition c1x="988.5362326080733" c2y="566.0210138206156" c1y="584.4694593753175" description="" straight="0" type="2" ypos="462.7194456589556" endx="967.5642096550325" xpos="985.7106972703239" endy="457.1674510347465" c2x="947.6209185398035">
+    <transition c1x="795.1187325113549" c2y="402.9763243929456" c1y="490.4261578353746" description="" straight="0" type="2" ypos="440.4995284757765" endx="942.2141873953215" xpos="949.241456759006" endy="423.951917115336" c2x="790.2939612686974">
       <from>2</from>
       <to>2</to>
       <inputs default="0" any="0" invert="0">Bus_TRDY &amp;&amp; RE / Bus_Frame, Count, MUX_origen, MC_WE</inputs>
       <outputs></outputs>
     </transition>
-    <transition c1x="511.309745334739" c2y="485.3969741650024" c1y="549.316579723694" description="" straight="1" type="2" ypos="613.2361852823856" endx="260.2808050625358" xpos="636.8242154708406" endy="421.4773686063108" c2x="385.7952751986375">
+    <transition c1x="875.4162796685919" c2y="466.7727698071119" c1y="493.9997930508627" description="" straight="0" type="2" ypos="457.9108361023888" endx="684.7567719431667" xpos="969.0223568009586" endy="600.2341987992777" c2x="774.2596610760135">
+      <from>2</from>
+      <to>3</to>
+      <inputs default="0" any="0" invert="0">Bus_TRDY&amp;&amp;RE&amp;&amp;LastWord/MC_WE,origen,Frame</inputs>
+      <outputs></outputs>
+    </transition>
+    <transition c1x="967.979028338129" c2y="644.0303319175342" c1y="558.0934171958567" description="" straight="0" type="2" ypos="462.1565024741792" endx="705.6462933960876" xpos="1000.14539580915" endy="620.9672466392117" c2x="787.8126608671082">
+      <from>2</from>
+      <to>3</to>
+      <inputs default="0" any="0" invert="0">Bus_TRDY &amp;&amp; WE / Bus_Frame, MC_send_data, MC_bus_Rd_Wr</inputs>
+      <outputs></outputs>
+    </transition>
+    <transition c1x="649.7239667836368" c2y="416.0376049373565" c1y="443.6944237360261" description="" straight="0" type="2" ypos="599.3778440123322" endx="269.8375064650366" xpos="655.4142214488977" endy="413.6406307723541" c2x="450.6327816636741">
       <from>3</from>
       <to>0</to>
-      <inputs default="0" any="0" invert="0">/ Replace_Block, ready, resetCount</inputs>
+      <inputs default="0" any="0" invert="0">RE/Replace_Block,ready,resetCount</inputs>
+      <outputs></outputs>
+    </transition>
+    <transition c1x="510.1701556957826" c2y="486.0514885037096" c1y="551.4558379923572" description="" straight="1" type="2" ypos="616.8601874810047" endx="261.63030365254" xpos="634.4400817174039" endy="420.6471390150621" c2x="385.9002296741613">
+      <from>3</from>
+      <to>0</to>
+      <inputs default="0" any="0" invert="0">WE / ready</inputs>
       <outputs></outputs>
     </transition>
   </machine>
