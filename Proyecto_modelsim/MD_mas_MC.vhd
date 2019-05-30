@@ -27,7 +27,6 @@ entity MD_mas_MC is port (
 		  RE : in std_logic;		-- read enable del MIPS	
 		  Mem_ready: out std_logic; -- indica si podemos hacer la operación solicitada en el ciclo actual
 		  Dout : out std_logic_vector (31 downto 0) --dato que se envía al Mips
-
 		  ); --salida que puede leer el MIPS
 end MD_mas_MC;
 
@@ -123,5 +122,6 @@ begin
 	Bus_TRDY <= MD_Bus_TRDY; --sólo la memoria activa la señal de wait
 		
 ------------------------------------------------------------------------------------------------	
+
 end Behavioral;
 

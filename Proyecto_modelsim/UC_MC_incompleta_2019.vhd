@@ -133,6 +133,7 @@ palabra <= palabra_UC;
 				block_addr <= '1';
 				Frame <= '1';
 				MC_tags_WE <= '1';
+				inc_rm <= '1';
 		elsif( state = Await and RE = '1' and Bus_DevSel = '0' ) then 
 				next_state <= Await;
 				MC_send_addr <= '1';
@@ -149,7 +150,7 @@ palabra <= palabra_UC;
 				count_enable <= '1';
 				mux_origen <= '1';
 				MC_WE <= '1';
-		elsif( state = Transfer and bus_TRDY = '0') then
+		elsif( state = Transfer and bus_TRDY = '0' and RE = '1') then
 				next_state <= Transfer;
 				Frame <= '1';
 		elsif( state = Transfer and RE = '1' and bus_TRDY = '1' and last_word = '1') then 
@@ -170,12 +171,18 @@ palabra <= palabra_UC;
 				MC_send_addr <= '1';
 				Frame <= '1';
 				MC_bus_Rd_Wr <= '1';
+				inc_wh <= '1';
 		elsif ( state = Await and Bus_DevSel = '0' and WE = '1') then
 				next_state <= Await;
 				MC_send_addr <= '1';
 				Frame <= '1';
 				MC_bus_Rd_Wr <= '1';		
 		elsif ( state = Await and Bus_DevSel = '1' and WE = '1') then
+				next_state <= Transfer;
+				MC_send_addr <= '1';
+				Frame <= '1';
+				MC_bus_Rd_Wr <= '1';
+		elsif( state = Transfer and bus_TRDY = '0' and WE = '1') then
 				next_state <= Transfer;
 				MC_send_addr <= '1';
 				Frame <= '1';
@@ -194,6 +201,7 @@ palabra <= palabra_UC;
 				MC_send_addr <= '1';
 				Frame <= '1';
 				MC_bus_Rd_Wr <= '1';
+				inc_wm <= '1';
 		end if;
 	   end process;
  
