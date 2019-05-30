@@ -1,53 +1,47 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /testbench/uut/clk
-add wave -noupdate -group Contadores /testbench/uut/ciclos
-add wave -noupdate -group Contadores /testbench/uut/paradas_control
-add wave -noupdate -group Contadores /testbench/uut/paradas_datos
-add wave -noupdate -group Contadores /testbench/uut/paradas_memoria
-add wave -noupdate -group Contadores /testbench/uut/mem_reads
-add wave -noupdate -group Contadores /testbench/uut/mem_writes
+add wave -noupdate -group MI -color Blue -itemcolor Blue /testbench/uut/Mem_I/Dout
+add wave -noupdate -group MI /testbench/uut/Mem_I/RAM
+add wave -noupdate /testbench/uut/Op_code_ID
+add wave -noupdate -expand -group Contadores /testbench/uut/ciclos
+add wave -noupdate -expand -group Contadores -color Yellow -itemcolor Yellow /testbench/uut/paradas_control
+add wave -noupdate -expand -group Contadores -color Yellow -itemcolor Yellow /testbench/uut/paradas_datos
+add wave -noupdate -expand -group Contadores -color Yellow -itemcolor Yellow /testbench/uut/paradas_memoria
+add wave -noupdate -expand -group Contadores -color Yellow -itemcolor Yellow /testbench/uut/mem_reads
+add wave -noupdate -expand -group Contadores -color Yellow -itemcolor Yellow /testbench/uut/mem_writes
 add wave -noupdate /testbench/uut/Mem_D/MC/Unidad_Control/state
 add wave -noupdate /testbench/uut/ciclos
-add wave -noupdate -label Read_miss /testbench/uut/Mem_D/MC/cont_rm/int_count
-add wave -noupdate -label Write_miss /testbench/uut/Mem_D/MC/cont_wm/int_count
-add wave -noupdate -label Write_hit /testbench/uut/Mem_D/MC/cont_wh/int_count
-add wave -noupdate /testbench/uut/Op_code_ID
 add wave -noupdate -group {Avanzar etapas} /testbench/uut/avanzar_ID
 add wave -noupdate -group {Avanzar etapas} /testbench/uut/avanzar_EX
 add wave -noupdate -group {Avanzar etapas} /testbench/uut/avanzar_MEM
 add wave -noupdate -group {Avanzar etapas} /testbench/uut/avanzar_WB
-add wave -noupdate -expand -group MC /testbench/uut/Mem_D/MC/ADDR
-add wave -noupdate -expand -group MC -color Cyan -itemcolor Cyan /testbench/uut/Mem_D/MC/MC_bus_Rd_Wr
-add wave -noupdate -expand -group MC /testbench/uut/Mem_D/MC/Din
-add wave -noupdate -expand -group MC /testbench/uut/Mem_D/MC/RE
-add wave -noupdate -expand -group MC /testbench/uut/Mem_D/MC/WE
-add wave -noupdate -expand -group MC /testbench/uut/Mem_D/MC/ready
-add wave -noupdate -expand -group MC -color Purple -itemcolor Purple /testbench/uut/Mem_D/MC/Dout
-add wave -noupdate -expand -group MC /testbench/uut/Mem_D/MC/MC_data
-add wave -noupdate /testbench/uut/Mem_D/MC_Bus_data_out
-add wave -noupdate /testbench/uut/Mem_D/MC_send_addr
-add wave -noupdate /testbench/uut/Mem_D/MC_send_data
-add wave -noupdate /testbench/uut/Mem_D/MD_send_data
-add wave -noupdate /testbench/uut/Mem_D/controlador_MD/BUS_RE
-add wave -noupdate /testbench/uut/Mem_D/controlador_MD/memoria_preparada
+add wave -noupdate -color Cyan -itemcolor Cyan -label MC_ready /testbench/uut/Mem_D/MC/ready
+add wave -noupdate /testbench/uut/Mem_D/MC/hit
+add wave -noupdate /testbench/uut/Mem_D/Bus_Devsel
+add wave -noupdate -group MC /testbench/uut/Mem_D/MC/ADDR
+add wave -noupdate -group MC -color Cyan -itemcolor Cyan /testbench/uut/Mem_D/MC/MC_bus_Rd_Wr
+add wave -noupdate -group MC /testbench/uut/Mem_D/MC/Din
+add wave -noupdate -group MC /testbench/uut/Mem_D/MC/RE
+add wave -noupdate -group MC /testbench/uut/Mem_D/MC/WE
+add wave -noupdate -group MC -color Purple -itemcolor Purple /testbench/uut/Mem_D/MC/Dout
+add wave -noupdate -group MC /testbench/uut/Mem_D/MC/MC_data
+add wave -noupdate -group MC /testbench/uut/Mem_D/MC_Bus_data_out
+add wave -noupdate -group MC /testbench/uut/Mem_D/MC_send_addr
+add wave -noupdate -group MC /testbench/uut/Mem_D/MC_send_data
+add wave -noupdate -group MC /testbench/uut/Mem_D/MD_send_data
 add wave -noupdate -label Register_Bank /testbench/uut/Register_bank/reg_file
-add wave -noupdate -group MI /testbench/uut/Mem_I/Din
-add wave -noupdate -group MI /testbench/uut/Mem_I/WE
-add wave -noupdate -group MI /testbench/uut/Mem_I/RE
-add wave -noupdate -group MI -color Blue -itemcolor Blue /testbench/uut/Mem_I/Dout
-add wave -noupdate -group MI /testbench/uut/Mem_I/RAM
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/IR_in
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/PC4_in
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/address_predicted
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/prediction
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/clk
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/reset
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/load
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/IR_ID
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/PC4_ID
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/address_predicted_ID
-add wave -noupdate -group IF_ID /testbench/uut/Banco_IF_ID/prediction_ID
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/IR_in
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/PC4_in
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/address_predicted
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/prediction
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/clk
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/reset
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/load
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/PC4_ID
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/address_predicted_ID
+add wave -noupdate -expand -group IF_ID -group IF_ID /testbench/uut/Banco_IF_ID/prediction_ID
+add wave -noupdate -expand -group IF_ID -color Orange -itemcolor Orange /testbench/uut/Banco_IF_ID/IR_ID
 add wave -noupdate -group ID_EX /testbench/uut/Banco_ID_EX/busA
 add wave -noupdate -group ID_EX /testbench/uut/Banco_ID_EX/busB
 add wave -noupdate -group ID_EX /testbench/uut/Banco_ID_EX/busA_EX
@@ -109,7 +103,7 @@ add wave -noupdate -expand -group MP /testbench/uut/Mem_D/controlador_MD/MD/Din
 add wave -noupdate -expand -group MP /testbench/uut/Mem_D/controlador_MD/MD/Dout
 add wave -noupdate -expand -group MP /testbench/uut/Mem_D/controlador_MD/MD/RAM
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {147 ns} 0}
+WaveRestoreCursors {{Cursor 1} {45 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 389
 configure wave -valuecolwidth 100
@@ -125,4 +119,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {85 ns} {167 ns}
+WaveRestoreZoom {1423 ns} {1505 ns}

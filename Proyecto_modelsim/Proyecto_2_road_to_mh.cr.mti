@@ -57,17 +57,6 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity Banco_MEM
 -- Compiling architecture Behavioral of Banco_MEM
 
-} {} {}} Z:/GitHub/Proyecto2/Proyecto_modelsim/memoriaRAM_datos_enable.vhd {1 {vcom -work proyecto_3 -2002 -explicit -stats=none Z:/GitHub/Proyecto2/Proyecto_modelsim/memoriaRAM_datos_enable.vhd
-Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Compiling entity RAM_128_32
--- Compiling architecture Behavioral of RAM_128_32
-
 } {} {}} Z:/GitHub/Proyecto2/Proyecto_modelsim/ALU.vhd {1 {vcom -work proyecto_3 -2002 -explicit -stats=none Z:/GitHub/Proyecto2/Proyecto_modelsim/ALU.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
@@ -122,14 +111,6 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity adder32
 -- Compiling architecture Behavioral of adder32
 
-} {} {}} Z:/GitHub/Proyecto2/Proyecto_modelsim/MIPs_predictor_incompleto.vhd {1 {vcom -work proyecto_3 -2002 -explicit -stats=none Z:/GitHub/Proyecto2/Proyecto_modelsim/MIPs_predictor_incompleto.vhd
-Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity MIPs_segmentado
--- Compiling architecture Behavioral of MIPs_segmentado
-
 } {} {}} Z:/GitHub/Proyecto2/Proyecto_modelsim/bits_shifter.vhd {1 {vcom -work proyecto_3 -2002 -explicit -stats=none Z:/GitHub/Proyecto2/Proyecto_modelsim/bits_shifter.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
@@ -168,7 +149,7 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity testbench
 -- Compiling architecture behavior of testbench
 
-} {} {}} Z:/GitHub/Proyecto2/Proyecto_modelsim/memoriaRAM_I_PRUEBA_1.vhd {1 {vcom -work work -2002 -explicit -stats=none {Z:\GitHub\Proyecto2\Proyecto_modelsim\memoriaRAM_I_PRUEBA_1.vhd}
+} {} {}} Z:/GitHub/Proyecto2/Proyecto_modelsim/memoriaRAM_I_PRUEBA_1.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/GitHub/Proyecto2/Proyecto_modelsim/memoriaRAM_I_PRUEBA_1.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
