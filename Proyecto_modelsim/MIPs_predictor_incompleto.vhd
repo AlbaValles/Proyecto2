@@ -373,7 +373,7 @@ load_PC <= '0' when riesgo_lw_uso='1' else '1';
 Op_code_ID <= IR_ID(31 downto 26) when avanzar_ID='1' else "000000";
 
 --AÑADIDO
-inc_paradas_datos <=riesgo_beq or riesgo_lw_uso;
+inc_paradas_datos <=(riesgo_beq or riesgo_lw_uso) and Mem_ready;
 ------------------------------------------------------------
 
 
@@ -397,7 +397,7 @@ prediction_in <= Saltar;
 branch_address_in <= DirSalto_ID;
 
 --AÑADIDO
-inc_paradas_control <= predictor_error;
+inc_paradas_control <= predictor_error and Mem_ready;
 -------------------------------------------------------------------------				
 -- si la operaci�n es aritm�tica (es decir: IR_ID(31 downto 26)= "000001") miro el campo funct
 -- como s�lo hay 4 operaciones en la alu, basta con los bits menos significativos del campo func de la instrucci�n	
