@@ -365,8 +365,6 @@ riesgo_beq <= riesgo_beq_rs_d1 or riesgo_beq_rs_d2 or riesgo_beq_rt_d1 or riesgo
 
 -- en funci�n de los riesgos se para o se permite continuar a la instrucci�n en ID
 
-
-avanzar_ID <= '0' when riesgo_beq='1' or riesgo_lw_uso='1' else '1';
 load_PC <= '0' when riesgo_lw_uso='1' else '1';
 
 -- Env�o de instrucci�n a EX. Adoptamos una soluci�n sencilla, si hay que parar pasamos hacia adelante las se�ales de control de una nop

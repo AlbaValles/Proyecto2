@@ -7,7 +7,6 @@
   use IEEE.std_logic_unsigned.all;
 
 
-
   ENTITY testbench_MD_mas_MC IS
   END testbench_MD_mas_MC;
 
@@ -23,7 +22,6 @@
 		  RE : in std_logic;		-- read enable del MIPS	
 		  Mem_ready: out std_logic; -- indica si podemos hacer la operación solicitada en el ciclo actual
 		  Dout : out std_logic_vector (31 downto 0)); --salida que puede leer el MIPS
-
 end COMPONENT;
 
           SIGNAL clk, reset, RE, WE, Mem_ready :  std_logic;
