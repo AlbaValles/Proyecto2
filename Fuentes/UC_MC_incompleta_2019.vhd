@@ -127,8 +127,15 @@ palabra <= palabra_UC;
 				ready <= '1';
 			-- 	MC_RE ya estará a 1 puesto que RE del MIPS también estará a 1
 	-- Miss en lectura
-		elsif( state = Inicio and RE = '1' and hit = '0') then 		
+		elsif( state = Inicio and RE = '1' and hit = '0' and Bus_DevSel = '0') then 		
 				next_state <= Await;
+				MC_send_addr <= '1';
+				block_addr <= '1';
+				Frame <= '1';
+				MC_tags_WE <= '1';
+				inc_rm <= '1';
+		elsif( state = Inicio and RE = '1' and hit = '0' and Bus_DevSel = '1') then 		
+				next_state <= Transfer;
 				MC_send_addr <= '1';
 				block_addr <= '1';
 				Frame <= '1';
@@ -165,8 +172,15 @@ palabra <= palabra_UC;
 				--palabra_UC <= "00";
 				count_enable <= '1';
 	-- Hit en escritura
-		elsif( state = Inicio and WE = '1' and hit = '1') then 
+		elsif( state = Inicio and WE = '1' and hit = '1'and Bus_DevSel = '0') then 
 				next_state <= Await;
+				MC_WE <= '1';
+				MC_send_addr <= '1';
+				Frame <= '1';
+				MC_bus_Rd_Wr <= '1';
+				inc_wh <= '1';
+		elsif( state = Inicio and WE = '1' and hit = '1'and Bus_DevSel = '1') then 
+				next_state <= Transfer;
 				MC_WE <= '1';
 				MC_send_addr <= '1';
 				Frame <= '1';
@@ -196,8 +210,14 @@ palabra <= palabra_UC;
 				next_state <= Inicio;
 				ready <= '1';
 	-- Miss en escritura
-		elsif ( state = Inicio and WE = '1' and hit = '0') then 
+		elsif ( state = Inicio and WE = '1' and hit = '0' and Bus_DevSel = '0') then 
 				next_state <= Await;
+				MC_send_addr <= '1';
+				Frame <= '1';
+				MC_bus_Rd_Wr <= '1';
+				inc_wm <= '1';
+		elsif ( state = Inicio and WE = '1' and hit = '0' and Bus_DevSel = '1') then 
+				next_state <= Transfer;
 				MC_send_addr <= '1';
 				Frame <= '1';
 				MC_bus_Rd_Wr <= '1';
